@@ -1,7 +1,14 @@
+import Container from '@/components/ui/container'
 import React from 'react'
 
-export default function HomePage() {
+const HomePage = () => {
   return (
-    <div>Home</div>
+    <Container>
+        <div className="space-y-10 pb-10">
+
+        </div>
+    </Container>
   )
 }
+
+export default HomePage;
