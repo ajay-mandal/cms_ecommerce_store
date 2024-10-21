@@ -1,10 +1,10 @@
 "use client"
 
-import { cn } from '@/lib/utils';
-import { Color, Size } from '@/types';
 import { useRouter, useSearchParams } from 'next/navigation';
 import qs from 'query-string';
 
+import { cn } from '@/lib/utils';
+import { Color, Size } from '@/types';
 
 interface FilterProps {
     data: ( Size | Color)[];

@@ -20,7 +20,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         route.push(`/product/${data.id}`);
     }
     return ( 
-        <div onClick={handleClick} className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4">
+        <div onClick={handleClick} className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4 w-[200px] md:w-full sm:w-[200px]">
             { /* Images and Actions */}
             <div className="aspect-square rounded-xl bg-gray-100 relative">
                 <Image
