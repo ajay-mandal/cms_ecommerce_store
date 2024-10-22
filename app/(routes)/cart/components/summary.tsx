@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button";
-import Currency from "@/components/ui/currency";
-import useCart from "@/hooks/use-cart";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { toast } from "sonner";
 
+import { Button } from "@/components/ui/button";
+import Currency from "@/components/ui/currency";
+import useCart from "@/hooks/use-cart";
 const Summary = () => {
 
     const searchParams = useSearchParams();
@@ -31,9 +31,9 @@ const Summary = () => {
         const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
             productsIds: items.map((item) => item.id),
         });
-
         window.location = response.data.url;
     }
+
     return (
         <div className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
             <h2 className="text-lg font-medium text-gray-900">
