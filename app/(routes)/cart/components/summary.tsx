@@ -27,13 +27,33 @@ const Summary = () => {
         return total + Number(item.price)
     }, 0);
 
-    const onCheckout = async() => {
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
-            productsIds: items.map((item) => item.id),
-        });
-        window.location = response.data.url;
-    }
+    // const onCheckout = async() => {
+    //     const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
+    //         productsIds: items.map((item) => item.id),
+    //     });
+    //     window.location = response.data.url;
+    // }
 
+    const onCheckout = async () => {
+        try {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
+                productsIds: items.map((item) => item.id),
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            
+            if (response.data && response.data.url) {
+                window.location.href = response.data.url;
+            } else {
+                toast.error('Invalid response from server');
+            }
+        } catch (error) {
+            console.error('Checkout error:', error);
+        }
+    }
+    
     return (
         <div className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
             <h2 className="text-lg font-medium text-gray-900">
