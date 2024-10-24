@@ -22,6 +22,20 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Store",
   description: "Store",
+  icons:{
+    icon: [
+      {
+        media: "(prefers-color-scheme: light)",
+        url: "/store-dark.svg",
+        href: "/store-dark.svg"
+      },
+      {
+        media: "(prefers-color-scheme: dark)",
+        url: "/store-light.svg",
+        href: "/store-light.svg"
+      }
+    ]
+  }
 };
 
 export default function RootLayout({
