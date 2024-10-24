@@ -3,6 +3,9 @@ import { Product } from "@/types";
 import Currency from "./ui/currency";
 import { Button } from "./ui/button";
 import { ShoppingCart } from "lucide-react";
+import { Badge } from "./ui/badge";
+import useCart from "@/hooks/use-cart";
+import { MouseEventHandler } from "react";
 
 interface InfoProps {
     data: Product;
@@ -10,6 +13,12 @@ interface InfoProps {
 const Info: React.FC<InfoProps> = ({
     data
 }) => {
+    const cart = useCart();
+
+    const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+        event.stopPropagation();
+        cart.addItem(data);
+    }
     return (
         <div>
             <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
@@ -22,18 +31,19 @@ const Info: React.FC<InfoProps> = ({
             <div className="flex flex-col gap-y-6">
                 <div className="flex items-center gap-x-4">
                     <h3 className="font-semibold text-black">Size:</h3>
-                    <div>
-                        {data.size.name}
-                    </div>
+                    <Badge variant="secondary" className="border border-black">
+                        {data.size.value}
+                    </Badge>
                 </div>
                 <div className="flex items-center gap-x-4">
                     <h3 className="font-semibold text-black">Color:</h3>
-                    <div className="h-6 w-6 rounded-full border border-gray-600"
-                    style={{ backgroundColor: data.color.value }} />
+                    <Badge variant="secondary" className="border border-black">
+                        {data.color.name}
+                    </Badge>
                 </div>
             </div>
             <div className="mt-10 flex items-center gap-x-3">
-                <Button className="flex item-center gap-x-2 rounded-full">
+                <Button className="flex item-center gap-x-2 rounded-full" onClick={onAddToCart}>
                     Add to Cart
                     <ShoppingCart className="h-5 w-5"/>
                 </Button>
