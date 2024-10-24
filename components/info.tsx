@@ -41,6 +41,12 @@ const Info: React.FC<InfoProps> = ({
                         {data.color.name}
                     </Badge>
                 </div>
+                <div className="flex items-start gap-x-4 flex-col">
+                    <h3 className="font-semibold text-black">Description</h3>
+                    <div className="py-2">
+                    <p className="text-base font-sans">{data.description}</p>
+                    </div>
+                </div>
             </div>
             <div className="mt-10 flex items-center gap-x-3">
                 <Button className="flex item-center gap-x-2 rounded-full" onClick={onAddToCart}>

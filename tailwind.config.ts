@@ -9,6 +9,11 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			shadows: ["var(--shadows)"],
+			frijole: ["var(--frijole)"]
+		}
+		,
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -58,6 +63,5 @@ const config: Config = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
 };
 export default config;

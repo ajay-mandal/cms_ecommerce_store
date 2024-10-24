@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Toaster } from "sonner";
+import { Shadows_Into_Light, Inter, Frijole} from "next/font/google";
 
 import "./globals.css";
 
@@ -8,16 +8,25 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import ModalProvider from "@/providers/modal-provider";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const shadows = Shadows_Into_Light({
+  subsets: ['latin'],
+  display: 'swap',
+  weight:['400'],
+  variable: "--shadows",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
+const frijole = Frijole({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400'],
+  variable: "--frijole"
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--inter'
+})
 
 export const metadata: Metadata = {
   title: "Store",
@@ -46,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${shadows.variable} ${inter.className} ${frijole.variable} antialiased `}
       >
         <ModalProvider />
         <Toaster />
