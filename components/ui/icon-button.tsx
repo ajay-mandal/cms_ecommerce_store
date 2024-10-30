@@ -9,8 +9,7 @@ interface IconButtonProps {
 
 const IconButton: React.FC<IconButtonProps> = ({
     onClick,
-    icon,
-    className
+    icon
 }) => {
     return (
         <button
