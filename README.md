@@ -24,4 +24,4 @@ NEXT_PUBLIC_MAIN_BILLBOARD="cm2nu97b16705tex7lvwej6v1"
 
 ![Image](./public/demo.jpeg)
 
-Read More at: [ajaymandal.me](https://ajaymandal.me)
+Read More at: [blogs.ajaymandal.me](https://blogs.ajaymandal.me)
