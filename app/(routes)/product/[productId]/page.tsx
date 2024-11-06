@@ -10,6 +10,8 @@ interface ProductPageProps {
         productId: string;
     }
 }
+export const revalidate = 0;
+
 const ProductPage: React.FC<ProductPageProps> = async({
     params
 }) => {
