@@ -25,6 +25,17 @@ const getProducts = async (query: Query) : Promise<Product[]> => {
 
     const res = await fetch(url);
 
+    if (!res.ok) {
+        console.error(`Failed to fetch products: ${res.status} ${res.statusText}`);
+        return [];
+    }
+
+    const contentType = res.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+        console.error('Response is not JSON');
+        return [];
+    }
+
     return res.json();
 }
 
